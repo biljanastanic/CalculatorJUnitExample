@@ -9,7 +9,6 @@ public class Calculator {
 		int countNegative = 0;
 		int aInt = Integer.parseInt(a);
 		int bInt = Integer.parseInt(b);
-		twoNeg(a, b, countNegative);
 		int p = (precision.length == 0) ? 10 : precision[0];
 		if(bInt==0)throw new DivideByZeroException("You can't  divide by zero!");
 		return encodeToString(countSubstraction(aInt, bInt, p));
@@ -41,63 +40,10 @@ public class Calculator {
 		}
 		return s;
 	}
-
-	public int divideInt(String a, String b) {
+	
+	
+	public int twoNeg(String a, String b) {
 		int countNegative = 0;
-		int aInt;
-		int bInt;
-		if (a.contains("-") && b.contains("-")) {
-			aInt = Integer
-					.parseInt(a.substring(a.indexOf("-") + 1, a.length()));
-			bInt = Integer
-					.parseInt(b.substring(a.indexOf("-") + 1, b.length()));
-			countNegative = 2;
-
-			div(aInt, bInt);
-
-		}
-
-		if (!a.contains("-") && b.contains("-")) {
-			aInt = Integer.parseInt(a);
-			bInt = Integer
-					.parseInt(b.substring(b.indexOf("-") + 1, b.length()));
-			countNegative = 1;
-
-			div(aInt, bInt);
-
-		}
-
-		if (a.contains("-") && !b.contains("-")) {
-			aInt = Integer
-					.parseInt(a.substring(a.indexOf("-") + 1, a.length()));
-			bInt = Integer.parseInt(b);
-			countNegative = 1;
-
-			div(aInt, bInt);
-
-		}
-
-		if (!a.contains("-") && !b.contains("-")) {
-			aInt = Integer.parseInt(a);
-			bInt = Integer.parseInt(b);
-			countNegative = 2;
-
-			div(aInt, bInt);
-
-		}
-
-		int neg = -count;
-		if (countNegative % 2 == 0) {
-			return count;
-		} else {
-			System.out.println(neg);
-			return neg;
-		}
-
-	}
-	
-	
-	public int twoNeg(String a, String b, int countNegative) {
 		if (a.contains("-") && b.contains("-")) {
 			int aInt = Integer
 					.parseInt(a.substring(a.indexOf("-") + 1, a.length()));
@@ -109,6 +55,40 @@ public class Calculator {
 		} 
 		return countNegative;
 
+	}
+	
+	public int twoPositive(String a, String b) {
+		int countNegative = 0;
+		if (!a.contains("-") && !b.contains("-")) {
+			int aInt = Integer.parseInt(a);
+			int bInt = Integer.parseInt(b);
+			countNegative = 2;
+
+		} 
+		return countNegative;
+
+	}
+	
+	public int aPositiveBNegative(String a, String b) {
+		int countNegative= 0;
+		if (!a.contains("-") && b.contains("-")) {
+			int aInt = Integer.parseInt(a);
+			int bInt = Integer
+					.parseInt(b.substring(b.indexOf("-") + 1, b.length()));
+			countNegative = 1;
+		}
+		return countNegative;
+	}
+	
+	public int bPositiveANegative(String a, String b) {
+		int countNegative= 0;
+		if (a.contains("-") && !b.contains("-")) {
+			int aInt = Integer
+					.parseInt(a.substring(a.indexOf("-") + 1, a.length()));
+			int bInt = Integer.parseInt(b);
+			countNegative = 1;
+		}
+		return countNegative;
 	}
 
 	public void div(int aInt, int bInt) {
@@ -152,15 +132,13 @@ public class Calculator {
 	public int add(String a, String b) {
 		int aAdd = Integer.parseInt(a);
 		int bAdd = Integer.parseInt(b);
-		int c = aAdd + bAdd;
-		return c;
+		return aAdd + bAdd;
 	}
 
 	public int sub(String a, String b) {
 		int aAdd = Integer.parseInt(a);
 		int bAdd = Integer.parseInt(b);
-		int c = aAdd - bAdd;
-		return c;
+		return aAdd - bAdd;
 	}
 
 	public int mult(String a, String b) {

@@ -10,20 +10,20 @@ import org.junit.Test;
 
 public class CalculatorTest {
 
-	@Test
-	public void test() {
-		Calculator c = new Calculator();
-		int r = c.divideInt("-456", "-76");
-		assertEquals(6, r, 0);
+//	@Test
+//	public void test() {
+//		Calculator c = new Calculator();
+//		int r = c.divideInt("-456", "-76");
+//		assertEquals(6, r, 0);
+//
+//	}
 
-	}
-
-	@Test
-	public void testDivide() {
-		Calculator c = new Calculator();
-		int r = c.divideInt("456", "-76");
-		assertEquals(-6, r, 0);
-	}
+//	@Test
+//	public void testDivide() {
+//		Calculator c = new Calculator();
+//		int r = c.divideInt("456", "-76");
+//		assertEquals(-6, r, 0);
+//	}
 	
 	@Test
 	public void testDivideS() {
@@ -59,6 +59,30 @@ public class CalculatorTest {
 	public void testDivideWithPrecision(){
 		Calculator c =  new Calculator();
 		assertEquals("59.461538461", c.divide("773", "13", 9));
+	}
+	
+	@Test 
+	public void testTwoNeg(){
+		Calculator c =  new Calculator();
+		assertEquals(2, c.twoNeg("-10", "-5"));
+	}
+	
+	@Test 
+	public void testAPosBNeg(){
+		Calculator c =  new Calculator();
+		assertEquals(1, c.aPositiveBNegative("10", "-5"));
+	}
+	
+	@Test 
+	public void testBPosANeg(){
+		Calculator c =  new Calculator();
+		assertEquals(1, c.bPositiveANegative("-10", "5"));
+	}
+	
+	@Test 
+	public void testTwoPositive(){
+		Calculator c =  new Calculator();
+		assertEquals(2, c.twoPositive("100", "5"));
 	}
 
 	
