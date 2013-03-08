@@ -58,7 +58,7 @@ public class CalculatorTest {
 	@Test 
 	public void testDivideWithPrecision(){
 		Calculator c =  new Calculator();
-		assertEquals("59.461", c.divide("773", "13",3));
+		assertEquals("59.461538461", c.divide("773", "13", 9));
 	}
 
 	

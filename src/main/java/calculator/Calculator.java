@@ -6,9 +6,11 @@ public class Calculator {
 	int count = 0;
 	
 	public String divide(String a, String b, Integer... precision) {
+		int countNegative = 0;
 		int aInt = Integer.parseInt(a);
 		int bInt = Integer.parseInt(b);
-		int p = (precision.length == 0) ? 5 : precision[0];
+		twoNeg(a, b, countNegative);
+		int p = (precision.length == 0) ? 10 : precision[0];
 		if(bInt==0)throw new DivideByZeroException("You can't  divide by zero!");
 		return encodeToString(countSubstraction(aInt, bInt, p));
 		
@@ -91,6 +93,21 @@ public class Calculator {
 			System.out.println(neg);
 			return neg;
 		}
+
+	}
+	
+	
+	public int twoNeg(String a, String b, int countNegative) {
+		if (a.contains("-") && b.contains("-")) {
+			int aInt = Integer
+					.parseInt(a.substring(a.indexOf("-") + 1, a.length()));
+			int bInt = Integer
+					.parseInt(b.substring(a.indexOf("-") + 1, b.length()));
+			countNegative = 2;
+
+
+		} 
+		return countNegative;
 
 	}
 
