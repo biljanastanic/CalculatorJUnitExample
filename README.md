@@ -1,0 +1,1 @@
+This is a simple calculator Java application. Methods take String input values and then parse and process them. Implementation includes 4 mathematical operations (with a few variations). Each method has a test case as well as an example of exception handling. 
